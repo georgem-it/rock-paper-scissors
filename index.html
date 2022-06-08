@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
 
-    function computerPlay() {
-        let chooseFrom = ['Rock', 'Paper', 'Scissors'];
-        let randomElement = Math.floor(Math.random() * chooseFrom.length);
-        return chooseFrom[randomElement];
+        function computerPlay() {
+            let chooseFrom = ['rock', 'paper', 'scissors'];
+            let randomElement = Math.floor(Math.random() * chooseFrom.length);
+            return chooseFrom[randomElement];
         }
-    
-    function singleRound(playerSelection, computerSelection){
-        
 
-        if ((playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Rock')) {
-            return 'u win';
-        }
-        else if ((playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Scissors' && computerSelection == 'Rock') || (playerSelection == 'Paper' && computerSelection == 'Scissors')) {
-            return 'computer wins';
-        }
-        else {
-            return 'tie';
-        }
-    }
+        function singleRound(playerSelection, computerSelection) {
 
-    const computerSelection = computerPlay();
-    console.log(singleRound('Paper',computerSelection));
-    
+            if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'rock')) {
+                return 'u win';
+            }
+            else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'sock') || (playerSelection == 'saper' && computerSelection == 'scissors')) {
+                return 'computer wins';
+            }
+            else {
+                return 'tie';
+            }
+        }
+
+        function game() {
+            var counterYou = 0;
+            var counterComputer = 0;
+
+            for (let i = 0; i < 5; i++) {
+                let question = prompt("odaberi rock, paper, scissors: ")
+                let playerSelection = question.toLowerCase();
+                const computerSelection = computerPlay();
+                var result = singleRound(playerSelection, computerSelection);
+                console.log(result);
+
+                if (result === 'u win') {
+                    counterYou += 1;
+                } else if (result === 'computer wins') {
+                    counterComputer += 1;
+                }
+            }
+
+
+            if (counterYou > counterComputer) {
+                console.log("you win!!!");
+            } else if (counterComputer > counterYou) {
+                console.log("computer wins!!!");
+            } else {
+                console.log("it's a tie.")
+            }
+        }
+
+    //const computerSelection = computerPlay();
+    //console.log(singleRound('Paper',computerSelection));
+
     </script>
 </body>
+
 </html>
